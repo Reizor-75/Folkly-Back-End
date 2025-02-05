@@ -13,6 +13,8 @@ router.use(decodeUserFromToken)
 router.get('/', checkAuth, profilesCtrl.index)
 // GET to localhost:3001/api/profiles/:id
 router.get('/:id', checkAuth, profilesCtrl.show)
+// PUT to localhost:3001/api/profiles/:id
+router.put('/:id', checkAuth, profilesCtrl.update)
 // PUT to localhost:3001/api/profiles/:id/add-photo
 router.put('/:id/add-photo', checkAuth, profilesCtrl.addPhoto)
 
