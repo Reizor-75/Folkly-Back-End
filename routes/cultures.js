@@ -13,6 +13,8 @@ router.use(decodeUserFromToken)
 router.get('/', checkAuth, culturesCtrl.index)
 // GET to localhost:3001/api/cultures/:cultureId
 router.get('/:cultureId', checkAuth, culturesCtrl.show)
+// GET to localhost:3001/api/cultures/:cultureId/lessons/:lessonId
+router.get('/:cultureId/lessons/:lessonId', checkAuth, culturesCtrl.showLesson)
 // POST to localhost:3001/api/cultures
 router.post('/', checkAuth, culturesCtrl.create)
 // POST to localhost:3001/api/cultures/:cultureId/lessons

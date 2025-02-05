@@ -56,3 +56,14 @@ export async function createLesson(req, res) {
     res.status(500).json(`🚨`, err)
   }
 }
+
+export async function showLesson(req, res) {
+  // try {
+  //   const culture = await Culture.findById(req.params.cultureId)
+  //   const lesson = culture.lessons.findById(req.params.lessonId)
+  //   res.status(200).json(lesson)
+  // } catch (err) {
+  //   console.log(`🚨`, err)
+  //   res.status(500).json(`🚨`, err)
+  // }
+}
