@@ -19,11 +19,10 @@ const lessonSchema= new Schema({
 const culutreSchema = new Schema({
   name: { type: String, required: true },
   lang: { type: String, required: true },
-  popCultureTypes: [{
+  popCultCat: {
     type: String,
-    enum: ['Movies','Music','Televison', 'Literature', 'Traditions'],
-    default: 'Movies'
-  }],
+    enum: ['Movies','Music','Television', 'Literature', 'Traditions'],
+  },
   lessons: [lessonSchema],
 },{
   timestamps: true,
