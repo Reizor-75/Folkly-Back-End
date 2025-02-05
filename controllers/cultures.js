@@ -29,3 +29,17 @@ export async function create(req, res) {
     res.status(500).json(`🚨`, err)
   }
 }
+
+export async function update(req, res) {
+  try {
+    const culture = await Culture.findByIdAndUpdate(
+      req.params.cultureId,
+      req.body,
+      { new: true }
+    )
+    res.status(200).json(culture)
+  } catch (err) {
+    console.log(`🚨`, err)
+    res.status(500).json(`🚨`, err)
+  }
+}

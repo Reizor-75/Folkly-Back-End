@@ -15,5 +15,7 @@ router.get('/', checkAuth, culturesCtrl.index)
 router.get('/:cultureId', checkAuth, culturesCtrl.show)
 // POST to localhost:3001/api/cultures
 router.post('/', checkAuth, culturesCtrl.create)
+// PUT to localhost:3001/api/cultures/:cultureID
+router.put('/:cultureId', checkAuth, culturesCtrl.update)
 
 export { router }
