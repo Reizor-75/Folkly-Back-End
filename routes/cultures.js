@@ -13,5 +13,7 @@ router.use(decodeUserFromToken)
 router.get('/', checkAuth, culturesCtrl.index)
 // GET to localhost:3001/api/cultures/:cultureID
 router.get('/:cultureId', checkAuth, culturesCtrl.show)
+// POST to localhost:3001/api/cultures
+router.post('/', checkAuth, culturesCtrl.create)
 
 export { router }

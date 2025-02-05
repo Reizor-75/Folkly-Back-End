@@ -19,3 +19,13 @@ export async function show(req, res) {
     res.status(500).json(`🚨`, err)
   }
 }
+
+export async function create(req, res) {
+  try {
+    const culture = await Culture.create(req.body)
+    res.status(201).json(culture)
+  } catch (err) {
+    console.log(`🚨`, err)
+    res.status(500).json(`🚨`, err)
+  }
+}
