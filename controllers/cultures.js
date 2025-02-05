@@ -43,3 +43,16 @@ export async function update(req, res) {
     res.status(500).json(`🚨`, err)
   }
 }
+
+export async function createLesson(req, res) {
+  try {
+    const culture = await Culture.findById(req.params.cultureId)
+    culture.lessons.push(req.body)
+    await culture.save()
+    const newLesson = culture.lessons[culture.lessons.length - 1]
+    res.status(201).json(newLesson)
+  } catch (err) {
+    console.log(`🚨`, err)
+    res.status(500).json(`🚨`, err)
+  }
+}
