@@ -6,8 +6,8 @@ async function index(req, res) {
     const profiles = await Profile.find({})
     res.json(profiles)
   } catch (err) {
-    console.log(err)
-    res.status(500).json(err)
+    console.log(`🚨`, err)
+    res.status(500).json(`🚨`, err)
   }
 }
 
@@ -25,9 +25,38 @@ async function addPhoto(req, res) {
     await profile.save()
     res.status(201).json(profile.photo)
   } catch (err) {
-    console.log(err)
-    res.status(500).json(err)
+    console.log(`🚨`, err)
+    res.status(500).json(`🚨`, err)
   }
 }
 
-export { index, addPhoto }
+async function show(req, res) {
+  try {
+    const profile = await Profile.findById(req.params.id)
+    res.status(200).json(profile)
+  } catch (err) {
+    console.log(`🚨`, err)
+    res.status(500).json(`🚨`, err)
+  }
+}
+
+async function update(req, res) {
+  try {
+    const profile = await Profile.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true }
+    )
+    res.status(200).json(profile)
+  } catch (err) {
+    console.log(`🚨`, err)
+    res.status(500).json(`🚨`, err)
+  }
+}
+
+export { 
+  index, 
+  addPhoto,
+  show,
+  update
+}
